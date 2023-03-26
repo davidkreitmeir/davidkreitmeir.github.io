@@ -1,0 +1,94 @@
+# This is the configuration file for the example website of the Hugo theme
+# Astatine (see https://github.com/hugcis/hugo-astatine-theme).
+#
+# The URL from which the site will be served
+baseurl = "https://davidkreitmeir.github.io"
+# Language used
+languageCode = "en-us"
+# Website title
+title = "David H Kreitmeir"
+# Theme used
+theme = "hugo-astatine-theme"
+
+preserveTaxonomyNames = true
+rssLimit = 10
+paginate = 10
+
+# Code highlighting
+pygmentsCodefences = true
+pygmentsStyle = "native"
+
+# Taxonomies (only tags and categories are supported out of the box but you can
+# add more)
+# [taxonomies]
+    # category = "categories"
+    # tag = "tags"
+
+# Configure permalinks style
+[permalinks]
+    post = "/:slug/"
+    page = "/:slug/"
+
+# Configure main navbar links. They can have a weight to select the order.
+# This links to content within the content/post/ folder
+[[menu.main]]
+    name = "Blog"
+    pre = "fa-laptop"
+    url = "/post/"
+    weight = -150
+
+# This links to CV.pdf
+# [[menu.main]]
+    # name = "CV"
+    # pre = "fa fa-file-pdf-o"
+    # url = "/vitae/CV.pdf"
+    # weight = -110
+
+# Links to Socials
+[[menu.main]]
+    name = "Github"
+    pre = "fa-github"
+    url = "https://github.com/davidkreitmeir"
+    weight = -100
+
+# [[menu.main]]
+    # name = ""
+    # pre = "fa-twitter-square"
+    # url = "https://twitter.com/DKreitmeir"
+    # weight = -90
+
+# Site wide params and SEO
+[params]
+    # Site description. Individual pages can have descriptions too but if
+    # missing it will fallback to that one.
+    description = """The homepage of David Kreitmeir."""
+    # Author of the site
+    authorName = "David Kreitmeir"
+    # Main image for the author. This will be the default image for SEO.
+    [params.imgname]
+        name = "img/Profile.png"
+        # Add an alt description for the image
+        alt = "Profile picture"
+
+    customCSS = ["css/font-awesome.min.css"]
+
+    # Indicate if you host Katex yourself. Defaults to using the CDN KaTex.
+    # hostedKaTex = false
+
+    # Optional: add a twitter handle and mastodon handle for SEO.
+    # [params.twitter]
+        # name = "@DKreitmeir"
+    # [params.mastodon]
+        # name = "@jkharkness"
+        # host = "mastodon.social"
+
+    # Enable link to feed in footer
+    blogrss = true
+
+    # Enable pingback and webmention via webmention.io
+    # webmention = "hugocisneros.com"
+
+
+# Sitemap location (default is /sitemap.xml)
+[sitemap]
+  filename = "sitemap.xml"
