@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>Querying the EITI API - David H Kreitmeir</title>
+<meta property="og:title" content="Querying the EITI API - David H Kreitmeir">
+<meta property="og:type" content="article">
+
+
+<meta property="og:image" content="img/Profile.png">
+
+<meta property="og:url" content="/querying-the-eiti-api/"><meta property="og:description" content="The homepage of David Kreitmeir.">
+<meta name="Description" property="description" content="The homepage of David Kreitmeir.">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
+
+
+<script>function updateMode(){if(localStorage.theme==='dark'||(!('theme'in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}
+function toggleMode(){if(localStorage.theme==='dark'){localStorage.theme='light';}
+else{localStorage.theme='dark';}
+updateMode()}
+window.onload=updateMode();function toggleMenu(){let navbar=document.getElementById("navbar-default");if(navbar.classList.contains("hidden")){navbar.classList.remove("hidden");}
+else{navbar.classList.add("hidden");}}</script>
+<script src="https://use.fontawesome.com/43a7e1e617.js"></script>
+
+  </head>
+  <body>
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">David H Kreitmeir</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/"><i class="fa fa-laptop fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Blog</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="https://github.com/davidkreitmeir"><i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Github</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="location.href='static/files/CV.pdf';" ><i class="fa fa-file-pdf-o fa-lg fa-fw" aria-hidden="true"></i>&nbsp; CV</button>
+        </li>
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+<article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="title-container">
+        <h1 class="article-title p-name" itemprop="name">Querying the EITI API</h1>
+        
+        <div class="flex justify-between items-center">
+            
+            <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="/querying-the-eiti-api/">
+                <time itemprop="datePublished" class="dt-published"
+                    datetime="2022-03-24T17:30:21&#43;1100"
+                    content="2022-03-24T17:30:21&#43;1100">
+                    2022.03.24
+                </time>
+            </a>
+            
+            
+                
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="/" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">David Kreitmeir</span></a>
+                
+            
+        </div>
+        
+    </div>
+
+    <div class="article-content e-content" itemprop="articleBody">
+        <p>Class to interact with and query the <a href="https://api.eiti.org/#eiti---api-documentation">EITI API</a>.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># Load Libraries</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">os</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">requests</span> <span style="color:#999;font-style:italic"># So we can query a web API</span>
+<span style="color:#6ab825;font-weight:bold">from</span> <span style="color:#447fcf;text-decoration:underline">urllib.parse</span> <span style="color:#6ab825;font-weight:bold">import</span> urlencode <span style="color:#999;font-style:italic"># So we can manipulate the API requests and define the search</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">pandas</span> <span style="color:#6ab825;font-weight:bold">as</span> <span style="color:#447fcf;text-decoration:underline">pd</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">json</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">datetime</span>
+<span style="color:#6ab825;font-weight:bold">from</span> <span style="color:#447fcf;text-decoration:underline">termcolor</span> <span style="color:#6ab825;font-weight:bold">import</span> colored, cprint <span style="color:#999;font-style:italic"># to print errors in red!</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">numpy</span> <span style="color:#6ab825;font-weight:bold">as</span> <span style="color:#447fcf;text-decoration:underline">np</span>
+</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6ab825;font-weight:bold">class</span> <span style="color:#447fcf;text-decoration:underline">EITIstream</span>():
+    <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">    Container to manage EITI API</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">    </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
+
+    <span style="color:#6ab825;font-weight:bold">def</span> __init__(self, version, section, headers, params=None):
+        self.headers = headers
+        self.key = version
+        self.section = section
+        self.url = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">https://eiti.org/api/</span><span style="color:#ed9d13">&#39;</span> + version + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">/</span><span style="color:#ed9d13">&#34;</span> + section
+        <span style="color:#6ab825;font-weight:bold">if</span> params:
+            self.response = <span style="color:#24909d">dict</span>(requests.get(self.url, params=params, headers = headers).json())
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            self.response = <span style="color:#24909d">dict</span>(requests.get(self.url, params={}, headers = headers).json())
+        self.current = <span style="color:#3677a9">0</span>
+
+
+    <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">def hasNext(self):</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        if (self.current &gt;= self.response[</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">]):</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            return(False)</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        else:</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            return(True)</span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">hasNext</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Helper funtion to check if there exists a next page</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
+        <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">next</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">list</span>(self.response.keys()):
+            <span style="color:#6ab825;font-weight:bold">return</span>(True)
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            <span style="color:#6ab825;font-weight:bold">return</span>(False)
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">nextPage</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Helper funtion that graps the next page</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
+        nextPage = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">next</span><span style="color:#ed9d13">&#39;</span>][<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">href</span><span style="color:#ed9d13">&#39;</span>]
+        self.response = <span style="color:#24909d">dict</span>(requests.get(nextPage).json())
+
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_organisations</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on all organizations later to be matched with</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        revenue data.</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: List of Dictionaries</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+        <span style="color:#6ab825;font-weight:bold">while</span> self.hasNext(): <span style="color:#999;font-style:italic"># while there exists a new page</span>
+            data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+            self.current += <span style="color:#24909d">len</span>(self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>]) <span style="color:#999;font-style:italic"># update count by number of entries retrieved in this step</span>
+            self.nextPage() <span style="color:#999;font-style:italic"># update url</span>
+            <span style="color:#6ab825;font-weight:bold">return</span>(data)
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+            self.current += <span style="color:#24909d">len</span>(self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>]) <span style="color:#999;font-style:italic"># update count by number of entries retrieved in this step</span>
+            <span style="color:#6ab825;font-weight:bold">return</span>(data)
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_countries</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on all countries in the EITI dataset</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+        data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+        count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of reports</span>
+
+        <span style="color:#6ab825;font-weight:bold">if</span> count == <span style="color:#24909d">len</span>(data): <span style="color:#999;font-style:italic"># sanity check</span>
+
+            countries = [] <span style="color:#999;font-style:italic"># initalize country list</span>
+
+            <span style="color:#6ab825;font-weight:bold">for</span> country <span style="color:#6ab825;font-weight:bold">in</span> data: <span style="color:#999;font-style:italic"># loop through countries</span>
+
+                <span style="color:#6ab825;font-weight:bold">if</span> country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">reports</span><span style="color:#ed9d13">&#39;</span>]:
+                    <span style="color:#999;font-style:italic"># if there exist reports write report years in ascending order as comma sperated string</span>
+                    years = <span style="color:#24909d">list</span>(country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">reports</span><span style="color:#ed9d13">&#39;</span>].keys())
+                    years.sort()
+                    report_years = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join(years)
+                <span style="color:#6ab825;font-weight:bold">else</span>:
+                    report_years = None
+
+                info = {<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country_id</span><span style="color:#ed9d13">&#39;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">id</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country</span><span style="color:#ed9d13">&#39;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso2</span><span style="color:#ed9d13">&#39;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso2</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso3</span><span style="color:#ed9d13">&#39;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso3</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">report_years</span><span style="color:#ed9d13">&#39;</span>: report_years,
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">latest_validation_date</span><span style="color:#ed9d13">&#39;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">latest_validation_date</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#999;font-style:italic">#&#39;latest_validation_url&#39;: country[&#39;latest_validation_url&#39;]</span>
+                       }
+
+                countries.append(info) <span style="color:#999;font-style:italic"># append info for country</span>
+
+            <span style="color:#6ab825;font-weight:bold">return</span> pd.DataFrame(countries)
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: the response count does not equal the number of data reports retrieved</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_JoinLeaveDates</span>(self):
+
+        data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+        count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of codes</span>
+
+        <span style="color:#6ab825;font-weight:bold">if</span> version == <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">v2.0</span><span style="color:#ed9d13">&#34;</span>: <span style="color:#999;font-style:italic"># sanity check as data only retrievable if version 2</span>
+
+            <span style="color:#6ab825;font-weight:bold">if</span> count == <span style="color:#24909d">len</span>(data): <span style="color:#999;font-style:italic"># sanity check</span>
+                info = [] <span style="color:#999;font-style:italic"># empty list to save dictionaries</span>
+                <span style="color:#6ab825;font-weight:bold">for</span> country <span style="color:#6ab825;font-weight:bold">in</span> data:
+                    dic = {<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">id_v2</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">id</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">country</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">iso2</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso3</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">iso3</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">iso3</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">join_date</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">join_date</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">leave_date</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">leave_date</span><span style="color:#ed9d13">&#39;</span>],
+                           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">latest_validation_date</span><span style="color:#ed9d13">&#34;</span>: country[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">latest_validation_date</span><span style="color:#ed9d13">&#39;</span>]
+                          }
+                    info.append(dic)
+
+                <span style="color:#6ab825;font-weight:bold">return</span> pd.DataFrame(info)
+
+            <span style="color:#6ab825;font-weight:bold">else</span>:
+                cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: The response count does not equal the number of data reports retrieved</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
+        <span style="color:#6ab825;font-weight:bold">else</span>:   
+            cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: Requested Data only retrievable in </span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">v2.0</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">. Check Version!</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_gfsCodes</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on all GFS Codes/Descriptions in the EITI dataset</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+        data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+        count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of codes</span>
+
+        <span style="color:#6ab825;font-weight:bold">if</span> count == <span style="color:#24909d">len</span>(data): <span style="color:#999;font-style:italic"># sanity check</span>
+
+            codes = [] <span style="color:#999;font-style:italic"># initalize</span>
+
+            <span style="color:#6ab825;font-weight:bold">for</span> code <span style="color:#6ab825;font-weight:bold">in</span> data: <span style="color:#999;font-style:italic"># loop through codes</span>
+
+                info = {<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">gfs_code_id</span><span style="color:#ed9d13">&#39;</span>: code[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">id</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">gfs_code</span><span style="color:#ed9d13">&#39;</span>: code[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">code</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">gfs_description</span><span style="color:#ed9d13">&#39;</span>: code[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span>],
+                        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">gfs_parent</span><span style="color:#ed9d13">&#39;</span>: code[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">parent</span><span style="color:#ed9d13">&#39;</span>]
+                        }
+
+                codes.append(info) <span style="color:#999;font-style:italic"># append info for code</span>
+
+            <span style="color:#6ab825;font-weight:bold">return</span> pd.DataFrame(codes)
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: the response count does not equal the number of data reports retrieved</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
+
+
+    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_revenues</span>(self):
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on revenues paid by companies.</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+
+        data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
+        count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of reports</span>
+
+        <span style="color:#6ab825;font-weight:bold">if</span> count == <span style="color:#24909d">len</span>(data): <span style="color:#999;font-style:italic"># sanity check</span>
+
+            <span style="color:#6ab825;font-weight:bold">if</span> data: <span style="color:#999;font-style:italic"># if there exists data</span>
+
+                reports = [] <span style="color:#999;font-style:italic"># initalize reports list</span>
+
+                <span style="color:#6ab825;font-weight:bold">for</span> report <span style="color:#6ab825;font-weight:bold">in</span> data: <span style="color:#999;font-style:italic"># loop through reports</span>
+
+                    <span style="color:#6ab825;font-weight:bold">print</span>(f<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Working on {report[</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">]}</span><span style="color:#ed9d13">&#34;</span>)
+
+                    <span style="color:#999;font-style:italic"># save contextual info as a dictionary</span>
+                    info = {<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">report_id</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">id</span><span style="color:#ed9d13">&#39;</span>],
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">report_label</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span>],
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country_id</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country</span><span style="color:#ed9d13">&#39;</span>][<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">id</span><span style="color:#ed9d13">&#39;</span>],
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">country</span><span style="color:#ed9d13">&#39;</span>][<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">label</span><span style="color:#ed9d13">&#39;</span>],
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">government_entities_nr</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">government_entities_nr</span><span style="color:#ed9d13">&#39;</span>], <span style="color:#999;font-style:italic"># number of goverment organizations\</span>
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">company_entities_nr</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">company_entities_nr</span><span style="color:#ed9d13">&#39;</span>], <span style="color:#999;font-style:italic"># number of company organizations</span>
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">publication_date</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">publication_date_EITI_report</span><span style="color:#ed9d13">&#39;</span>], <span style="color:#999;font-style:italic"># format of date???</span>
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">year_start</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">year_start</span><span style="color:#ed9d13">&#39;</span>],
+                            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">year_end</span><span style="color:#ed9d13">&#39;</span>: report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">year_end</span><span style="color:#ed9d13">&#39;</span>]
+                           }
+
+                    <span style="color:#999;font-style:italic"># save renues data as DataFrame</span>
+                    rev_gov = report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">revenue_government</span><span style="color:#ed9d13">&#39;</span>]
+                    rev_comp = report[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">revenue_company</span><span style="color:#ed9d13">&#39;</span>]
+                    revenues = []
+                    <span style="color:#6ab825;font-weight:bold">for</span> rev <span style="color:#6ab825;font-weight:bold">in</span> [rev_gov, rev_comp]: <span style="color:#999;font-style:italic"># to accomodate cases when revenue data is empty</span>
+                        <span style="color:#6ab825;font-weight:bold">if</span> rev:
+                            revenues.extend(rev)
+
+                    <span style="color:#6ab825;font-weight:bold">if</span> revenues: <span style="color:#999;font-style:italic"># if revenue info exists</span>
+                        df = pd.DataFrame(revenues)
+                        <span style="color:#999;font-style:italic"># add contextual info to DataFrame</span>
+                        <span style="color:#6ab825;font-weight:bold">for</span> key <span style="color:#6ab825;font-weight:bold">in</span> info.keys():
+                            loc = df.shape[<span style="color:#3677a9">1</span>] <span style="color:#999;font-style:italic"># position</span>
+                            df.insert(loc, column = key, value = info[key])
+                    <span style="color:#6ab825;font-weight:bold">else</span>:
+                        df = None
+
+                    <span style="color:#999;font-style:italic"># append report</span>
+                    reports.append(df)
+
+
+                <span style="color:#999;font-style:italic"># concat DataFrames for country, else return None</span>
+                <span style="color:#6ab825;font-weight:bold">return</span> pd.concat(reports, ignore_index=True)
+
+            <span style="color:#6ab825;font-weight:bold">else</span>: <span style="color:#999;font-style:italic"># if no data exists</span>
+                <span style="color:#6ab825;font-weight:bold">return</span> None
+        <span style="color:#6ab825;font-weight:bold">else</span>:
+            cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: the response count does not equal the number of data reports retrieved</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
+</code></pre></div>
+    </div>
+
+    
+
+    
+
+    
+    <div class="text-neutral-500 mb-4">
+        Last modified <span itemprop="dateModified"
+                            datetime="2022-03-24T17:30:21&#43;1100"
+                            content="2022-03-24T17:30:21&#43;1100">
+        2022.03.24
+        </span>
+    </div>
+    
+</article>
+
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
+    
+
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© David Kreitmeir 2023</span>
+    </li>
+  </ul>
+</footer>
+
+
+
+  </body>
+</html>

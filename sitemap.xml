@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <url>
+        <loc>/</loc>
+        <lastmod>2022-03-24T17:30:21+11:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>/post/</loc>
+        <lastmod>2022-03-24T17:30:21+11:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>/querying-the-eiti-api/</loc>
+        <lastmod>2022-03-24T17:30:21+11:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>/automate-the-boring-stuff-sql-query-building-for-wrds/</loc>
+        <lastmod>2021-01-22T17:30:21+11:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>/about/</loc>
+    </url>
+    
+    <url>
+        <loc>/categories/</loc>
+    </url>
+    
+    <url>
+        <loc>/tags/</loc>
+    </url>
+    
+</urlset>

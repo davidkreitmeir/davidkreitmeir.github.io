@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1"><title>Automate the boring stuff: SQL Query building for WRDS - David H Kreitmeir</title>
+<meta property="og:title" content="Automate the boring stuff: SQL Query building for WRDS - David H Kreitmeir">
+<meta property="og:type" content="article">
+
+
+<meta property="og:image" content="img/Profile.png">
+
+<meta property="og:url" content="/automate-the-boring-stuff-sql-query-building-for-wrds/"><meta property="og:description" content="The homepage of David Kreitmeir.">
+<meta name="Description" property="description" content="The homepage of David Kreitmeir.">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link href="/index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
+<meta name="theme-color" content="#ffffff">
+
+
+<script>function updateMode(){if(localStorage.theme==='dark'||(!('theme'in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}
+function toggleMode(){if(localStorage.theme==='dark'){localStorage.theme='light';}
+else{localStorage.theme='dark';}
+updateMode()}
+window.onload=updateMode();function toggleMenu(){let navbar=document.getElementById("navbar-default");if(navbar.classList.contains("hidden")){navbar.classList.remove("hidden");}
+else{navbar.classList.add("hidden");}}</script>
+<script src="https://use.fontawesome.com/43a7e1e617.js"></script>
+
+  </head>
+  <body>
+    <header class="md:px-0 px-2">
+        <nav >
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="nav-main my-2.5">
+      <a href="/" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">David H Kreitmeir</a>
+    </div>
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1
+                           0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0
+                           01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg
+                 my-2.5 grid-cols-1 pl-0 text-center">
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="/post/"><i class="fa fa-laptop fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Blog</a>
+        </li>
+        
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
+          <a class="text-zinc-600 dark:text-zinc-300
+                    hover:border-b-0" href="https://github.com/davidkreitmeir"><i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Github</a>
+        </li>
+        
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="location.href='static/files/CV.pdf';" ><i class="fa fa-file-pdf-o fa-lg fa-fw" aria-hidden="true"></i>&nbsp; CV</button>
+        </li>
+        <li class="h-7 pl-2.5 pr-0 list-none">
+          <button type="button" onclick="toggleMode()" class="h-full"  aria-label="Toggle between dark and light mode">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline"
+                 id="ligh-mode-button-img"
+                 alt="A sun icon for switching to light mode"
+                 src="/img/light_mode.svg">
+            <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden"
+                 id="dark-mode-button-img"
+                 alt="A moon icon for switching to dark mode"
+                 src="/img/dark_mode.svg">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0"
+          role="main">
+    
+<article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="title-container">
+        <h1 class="article-title p-name" itemprop="name">Automate the boring stuff: SQL Query building for WRDS</h1>
+        
+        <div class="flex justify-between items-center">
+            
+            <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="/automate-the-boring-stuff-sql-query-building-for-wrds/">
+                <time itemprop="datePublished" class="dt-published"
+                    datetime="2021-01-22T17:30:21&#43;1100"
+                    content="2021-01-22T17:30:21&#43;1100">
+                    2021.01.22
+                </time>
+            </a>
+            
+            
+                
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="/" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">David Kreitmeir</span></a>
+                
+            
+        </div>
+        
+    </div>
+
+    <div class="article-content e-content" itemprop="articleBody">
+        <p>The following is a simple <code>python</code> program to automate the SQL query building in order to extract data from Wharton&rsquo;s Research Data Service <a href="https://wrds-www.wharton.upenn.edu/">WRDS</a>.</p>
+<h2 id="first-things-first">First things first</h2>
+<p>First, we need to load the library and connect to the WRDS database. This is easiest when using <code>Jupyter Notebooks</code>. WRDS provides a nice tutorial on how to connect to WRDS from <code>Jupyter Notebooks</code>, which can be found here:<br>
+<a href="https://wrds-www.wharton.upenn.edu/documents/1443/wrds_connection.html">https://wrds-www.wharton.upenn.edu/documents/1443/wrds_connection.html</a></p>
+<p>You should now hopefully be able to connect to the WRDS database with your account:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># load libraries</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">wrds</span>
+<span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">pandas</span> <span style="color:#6ab825;font-weight:bold">as</span> <span style="color:#447fcf;text-decoration:underline">pd</span>
+
+<span style="color:#999;font-style:italic"># connect to WRDS</span>
+db = wrds.Connection(wrds_username = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">your_username</span><span style="color:#ed9d13">&#39;</span>)
+</code></pre></div><pre><code>Loading library list...
+Done
+</code></pre>
+<h2 id="now-lets-build-some-queries">Now let&rsquo;s build some queries</h2>
+<p>Simplified, SQL queries take the general form:<code>select columns from library.dataset where column1 = value</code>. While it&rsquo;s of course an option to just manually write SQL queries, this gets very fast, very cumbersome when specifying many conditions (I also tend to sneak in typos).</p>
+<p>The following <code>python</code> function can take different arguments&ndash;such as column names or SIC codes&ndash;and automatically builds the query for a specific dataset (the only required argument).</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">build_query</span>(dataset, **kwargs):
+    <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;&#34;&#34;</span><span style="color:#ed9d13">Build Query for WRDS database.</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Args:</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            dataset (str): dataset</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            start (str): Start of time period with format YYYY-MM-DD, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            end (str): End of time period with format YYYY-MM-DD, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            columns (str or list): Filter of one or a list of columns, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            sic (str or list): Filter of one or a list of SIC, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            sich (str or list): Filter of one or a list of historical SIC, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            gvkey (str or list):  Filter of one or a list of Global Company Key, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            tic (str or list):  Filter of one or a list of ticker symbols, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            cusip (str or list):  Filter of one or a list of CUSIP symbols, default to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            limit (int): Return only a number of return records, defualt to None</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Returns:</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">            (str) with query</span><span style="color:#ed9d13">
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">    </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
+    columns = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">columns</span><span style="color:#ed9d13">&#34;</span>, None)
+    sic = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">sic</span><span style="color:#ed9d13">&#34;</span>, None)
+    sich = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">sich</span><span style="color:#ed9d13">&#34;</span>, None)
+    start = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">start</span><span style="color:#ed9d13">&#34;</span>, None)
+    end = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">end</span><span style="color:#ed9d13">&#34;</span>, None)
+    gvkey = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">gvkey</span><span style="color:#ed9d13">&#34;</span>, None)
+    tic = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">tic</span><span style="color:#ed9d13">&#34;</span>, None)
+    cusip = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">cusip</span><span style="color:#ed9d13">&#34;</span>, None)
+    limit = kwargs.get(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">limit</span><span style="color:#ed9d13">&#34;</span>, None)
+
+
+    <span style="color:#6ab825;font-weight:bold">if</span> columns <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        columns_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([x <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> columns])
+    <span style="color:#6ab825;font-weight:bold">else</span>:
+        columns_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">*</span><span style="color:#ed9d13">&#34;</span>
+
+    date_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> start <span style="color:#6ab825;font-weight:bold">and</span> end <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        date_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">datadate between {} and {}</span><span style="color:#ed9d13">&#34;</span>.format(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + start + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> , <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + end + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span>)
+
+    sic_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> sic <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        sic_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">sic in ({}) </span><span style="color:#ed9d13">&#34;</span>.format(
+            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + x + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> sic])
+        )
+
+    sich_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> sich <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        sich_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">sich in ({}) </span><span style="color:#ed9d13">&#34;</span>.format(
+            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + x + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> sich])
+        )
+
+    gvkey_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> gvkey <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        gvkey_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">gvkey in ({}) </span><span style="color:#ed9d13">&#34;</span>.format(
+            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + x + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> gvkey])
+        )
+
+    tic_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> tic <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        tic_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">tic in ({}) </span><span style="color:#ed9d13">&#34;</span>.format(
+            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + x + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> tic])
+        )
+
+    cusip_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> cusip <span style="color:#6ab825;font-weight:bold">is</span> <span style="color:#6ab825;font-weight:bold">not</span> None:
+        cusip_filter = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">cusip in ({}) </span><span style="color:#ed9d13">&#34;</span>.format(
+            <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">,</span><span style="color:#ed9d13">&#34;</span>.join([<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> + x + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span> <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> cusip])
+        )
+
+    <span style="color:#999;font-style:italic"># FIRST INSTANCE WITHOUT AND THEN SEQUENTIALLY ADD FILTERS (if non empty)</span>
+    filters = [date_filter, cusip_filter, tic_filter, gvkey_filter, sic_filter]
+    filters_list = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#24909d">any</span>(filters):
+        filters_list = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13"> and </span><span style="color:#ed9d13">&#34;</span>.join([x <span style="color:#6ab825;font-weight:bold">for</span> x <span style="color:#6ab825;font-weight:bold">in</span> filters <span style="color:#6ab825;font-weight:bold">if</span> x != <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>])
+        filters_list = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">where </span><span style="color:#ed9d13">&#34;</span> + filters_list
+
+    limit_number = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#34;</span>
+    <span style="color:#6ab825;font-weight:bold">if</span> limit:
+        limit_number += <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">LIMIT {} </span><span style="color:#ed9d13">&#34;</span>.format(limit)
+
+    cmd = (
+        <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">select </span><span style="color:#ed9d13">&#34;</span>
+        + columns_filter
+        + <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13"> from {} </span><span style="color:#ed9d13">&#34;</span>.format(dataset)
+        + filters_list
+        + limit_number
+        )
+
+    <span style="color:#6ab825;font-weight:bold">print</span>(cmd)
+
+    <span style="color:#6ab825;font-weight:bold">return</span>(cmd)
+</code></pre></div><p>Now let&rsquo;s see the function in action. The example case uses the Compustat database (<code>comp</code>). Let&rsquo;s assume we&rsquo;re interested in companies in specific industrial sectors and we know their SIC codes. We would now like to retrieve their financial fundamentals.</p>
+<p>Since <code>comp.funda</code> does not allow us to filter based on SIC codes directly, we first extract the codes of the relevant companies from the <code>comp.names</code> database.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sic_codes = [<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1011</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1021</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1031</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1041</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1044</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1061</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1081</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">1094</span><span style="color:#ed9d13">&#39;</span>]
+
+<span style="color:#999;font-style:italic"># construct query</span>
+query = build_query(dataset =<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">comp.names</span><span style="color:#ed9d13">&#34;</span>,
+                    sic = sic_codes
+                   )
+<span style="color:#999;font-style:italic"># look at query</span>
+<span style="color:#6ab825;font-weight:bold">print</span>(query)
+</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># let&#39;s send the SQL query to WRDS</span>
+df = db.raw_sql(query)
+</code></pre></div><p>At this point the function &ldquo;unfolds its power&rdquo; and makes your life a lot easier.</p>
+<p>To illustrate this and make things more interesting, let&rsquo;s assume that we do not want to download all of the variables but just the ones of interest. Moreover, we are only interested in a particular time period.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># get identifier of companies from query result</span>
+gvkeys = df[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">gvkey</span><span style="color:#ed9d13">&#34;</span>].astype(<span style="color:#24909d">str</span>).to_list()
+
+
+columns = [<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">gvkey</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">datadate</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">fyear</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">indfmt</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">consol</span><span style="color:#ed9d13">&#34;</span>,
+           <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">popsrc</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">datafmt</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">tic</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">cusip</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">conm</span><span style="color:#ed9d13">&#34;</span>,<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">revt</span><span style="color:#ed9d13">&#34;</span>]
+
+<span style="color:#999;font-style:italic"># use gvkeys for new query</span>
+query = build_query(dataset =<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">comp.funda</span><span style="color:#ed9d13">&#34;</span>,
+                    columns = columns,
+                    gvkey = gvkeys,
+                    start = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">2000-01-01</span><span style="color:#ed9d13">&#39;</span>,
+                    end = <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">2020-01-01</span><span style="color:#ed9d13">&#39;</span>,
+                   )
+
+<span style="color:#999;font-style:italic"># look at query</span>
+<span style="color:#6ab825;font-weight:bold">print</span>(query)
+</code></pre></div><p>Let&rsquo;s see what the output of the query looks like:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># query database and look at output</span>
+df = db.raw_sql(query)
+df.head()
+</code></pre></div><h2 id="not-so-famous-last-words">(Not so famous) last words</h2>
+<p>There are many more potential filters one could think of and implement in the function. I hope the base function above can build a nice foundation for your own use case. Please feel free to send me your expanded functions and ideas.</p>
+<p>Oh and&hellip;</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#999;font-style:italic"># ...don&#39;t forget to close your session if you&#39;re done ;)</span>
+db.close()
+</code></pre></div>
+    </div>
+
+    
+
+    
+
+    
+    <div class="text-neutral-500 mb-4">
+        Last modified <span itemprop="dateModified"
+                            datetime="2021-01-22T17:30:21&#43;1100"
+                            content="2021-01-22T17:30:21&#43;1100">
+        2021.01.22
+        </span>
+    </div>
+    
+</article>
+
+    </main>
+    <footer class="footer container h-10 text-center mt-1">
+<hr class="my-4">
+  <ul class="pl-0 mt-1">
+    
+
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© David Kreitmeir 2023</span>
+    </li>
+  </ul>
+</footer>
+
+
+
+  </body>
+</html>
