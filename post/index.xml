@@ -7,31 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Mar 2022 17:30:21 +1100</lastBuildDate>
-    
+
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+
+
     <item>
       <title>Querying the EITI API</title>
       <link>/querying-the-eiti-api/</link>
       <pubDate>Thu, 24 Mar 2022 17:30:21 +1100</pubDate>
-      
+
       <guid>/querying-the-eiti-api/</guid>
       <description>Class to interact with and query the EITI API.
 # Load Libraries import os import requests # So we can query a web API from urllib.parse import urlencode # So we can manipulate the API requests and define the search import pandas as pd import json import datetime from termcolor import colored, cprint # to print errors in red! import numpy as np class EITIstream(): &amp;#34;&amp;#34;&amp;#34;Container to manage EITI API&amp;#34;&amp;#34;&amp;#34; def __init__(self, version, section, headers, params=None): self.</description>
     </item>
-    
+
     <item>
       <title>Automate the boring stuff: SQL Query building for WRDS</title>
       <link>/automate-the-boring-stuff-sql-query-building-for-wrds/</link>
       <pubDate>Fri, 22 Jan 2021 17:30:21 +1100</pubDate>
-      
+
       <guid>/automate-the-boring-stuff-sql-query-building-for-wrds/</guid>
       <description>The following is a simple python program to automate the SQL query building in order to extract data from Wharton&amp;rsquo;s Research Data Service WRDS.
 First things first First, we need to load the library and connect to the WRDS database. This is easiest when using Jupyter Notebooks. WRDS provides a nice tutorial on how to connect to WRDS from Jupyter Notebooks, which can be found here:
 https://wrds-www.wharton.upenn.edu/documents/1443/wrds_connection.html
 You should now hopefully be able to connect to the WRDS database with your account:</description>
     </item>
-    
+
+    <item>
+      <title>Handout on Named Entity Recognition in python</title>
+      <link>/handout-on-named-entity-recognition-in-python/</link>
+      <pubDate>Fri, 8 May 2020 15:30:21 +1100</pubDate>
+
+      <guid>/handout-on-named-entity-recognition-with-python/</guid>
+      <description>Handout with a quick overview on named entity recognition (NER) in python</description>
+    </item>
+
   </channel>
 </rss>
