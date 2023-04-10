@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>David H Kreitmeir</title>
+    <title>David Kreitmeir</title>
     <link>/</link>
-    <description>Recent content on David H Kreitmeir</description>
-    
+    <description>Recent content on David Kreitmeir</description>
+
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Mar 2022 17:30:21 +1100</lastBuildDate>
-    
+
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+
+
   </channel>
 </rss>
