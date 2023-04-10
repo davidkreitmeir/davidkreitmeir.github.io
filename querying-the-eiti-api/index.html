@@ -67,17 +67,17 @@ else{navbar.classList.add("hidden");}}</script>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="grid md:grid-flow-col items-center justify-between text-lg
                  my-2.5 grid-cols-1 pl-0 text-center">
-        
+
         <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
           <a class="text-zinc-600 dark:text-zinc-300
                     hover:border-b-0" href="/post/"><i class="fa fa-laptop fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Blog</a>
         </li>
-        
+
         <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
           <a class="text-zinc-600 dark:text-zinc-300
                     hover:border-b-0" href="https://github.com/davidkreitmeir"><i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Github</a>
         </li>
-        
+
         <li class="h-7 pl-2.5 pr-0 list-none">
           <button type="button" onclick="location.href='/files/CV.pdf';" ><i class="fa fa-file-pdf-o fa-lg fa-fw" aria-hidden="true"></i>&nbsp; CV</button>
         </li>
@@ -103,13 +103,13 @@ else{navbar.classList.add("hidden");}}</script>
     <main class="content h-card container mt-2 m-auto
                  leading-loose md:px-0 px-2 z-0"
           role="main">
-    
+
 <article class="article h-entry" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="title-container">
         <h1 class="article-title p-name" itemprop="name">Querying the EITI API</h1>
-        
+
         <div class="flex justify-between items-center">
-            
+
             <a class="text-lg text-gray-600 dark:text-gray-400 border-none u-url" href="/querying-the-eiti-api/">
                 <time itemprop="datePublished" class="dt-published"
                     datetime="2022-03-24T17:30:21&#43;1100"
@@ -117,14 +117,14 @@ else{navbar.classList.add("hidden");}}</script>
                     2022.03.24
                 </time>
             </a>
-            
-            
-                
+
+
+
                 <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">David Kreitmeir</span></a>
-                
-            
+
+
         </div>
-        
+
     </div>
 
     <div class="article-content e-content" itemprop="articleBody">
@@ -184,7 +184,7 @@ else{navbar.classList.add("hidden");}}</script>
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        revenue data.</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: List of Dictionaries</span><span style="color:#ed9d13">
-</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
         <span style="color:#6ab825;font-weight:bold">while</span> self.hasNext(): <span style="color:#999;font-style:italic"># while there exists a new page</span>
             data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
             self.current += <span style="color:#24909d">len</span>(self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>]) <span style="color:#999;font-style:italic"># update count by number of entries retrieved in this step</span>
@@ -200,7 +200,7 @@ else{navbar.classList.add("hidden");}}</script>
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on all countries in the EITI dataset</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
-</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
         data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
         count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of reports</span>
 
@@ -257,7 +257,7 @@ else{navbar.classList.add("hidden");}}</script>
 
             <span style="color:#6ab825;font-weight:bold">else</span>:
                 cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: The response count does not equal the number of data reports retrieved</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
-        <span style="color:#6ab825;font-weight:bold">else</span>:   
+        <span style="color:#6ab825;font-weight:bold">else</span>:
             cprint(<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">Error: Requested Data only retrievable in </span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">v2.0</span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">. Check Version!</span><span style="color:#ed9d13">&#34;</span>, <span style="color:#ed9d13"></span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">red</span><span style="color:#ed9d13">&#34;</span>)
 
     <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_gfsCodes</span>(self):
@@ -265,7 +265,7 @@ else{navbar.classList.add("hidden");}}</script>
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on all GFS Codes/Descriptions in the EITI dataset</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
-</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
         data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
         count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of codes</span>
 
@@ -293,7 +293,7 @@ else{navbar.classList.add("hidden");}}</script>
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Method to collect information on revenues paid by companies.</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        ----</span><span style="color:#ed9d13">
 </span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        Return: DataFrame</span><span style="color:#ed9d13">
-</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>  
+</span><span style="color:#ed9d13"></span><span style="color:#ed9d13">        </span><span style="color:#ed9d13">&#34;&#34;&#34;</span>
 
         data = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">data</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># retrieve data</span>
         count = self.response[<span style="color:#ed9d13"></span><span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">count</span><span style="color:#ed9d13">&#39;</span>] <span style="color:#999;font-style:italic"># number of reports</span>
@@ -351,11 +351,11 @@ else{navbar.classList.add("hidden");}}</script>
 </code></pre></div>
     </div>
 
-    
 
-    
 
-    
+
+
+
     <div class="text-neutral-500 mb-4">
         Last modified <span itemprop="dateModified"
                             datetime="2022-03-24T17:30:21&#43;1100"
@@ -363,18 +363,18 @@ else{navbar.classList.add("hidden");}}</script>
         2022.03.24
         </span>
     </div>
-    
+
 </article>
 
     </main>
     <footer class="footer container h-10 text-center mt-1">
 <hr class="my-4">
   <ul class="pl-0 mt-1">
-    
+
 
     <li class="ml-2 first:before:content-none before:content-['•']
                 text-neutral-800 dark:text-neutral-400 inline-block list-none">
-      <span class="ml-2">© David Kreitmeir 2023</span>
+      <span class="ml-2">© David H Kreitmeir 2023</span>
     </li>
   </ul>
 </footer>
