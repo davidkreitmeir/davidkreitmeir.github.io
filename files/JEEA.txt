@@ -1,0 +1,8 @@
+@article{KreitmeirLaneRaschky2024,
+     author = {Kreitmeir, David and Lane, Nathan and Raschky, Paul},
+     year = {2024},
+     title = {{The Value of Names - Civil Society, Information, and Governing Multinationals}},
+     journal = {SocArXiv},
+     doi = {10.31235/osf.io/aw7sq},
+     url = {https://doi.org/10.31235/osf.io/aw7sq}
+}

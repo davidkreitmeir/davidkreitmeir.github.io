@@ -1,0 +1,14 @@
+@article{https://doi.org/10.1002/jae.3023,
+author = {Kreitmeir, David and Überfuhr, Thomas},
+title = {Disease and development—The predicted mortality instrument revisited},
+journal = {Journal of Applied Econometrics},
+volume = {39},
+number = {2},
+pages = {327-337},
+keywords = {growth, life expectancy, predicted mortality instrument},
+doi = {https://doi.org/10.1002/jae.3023},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/jae.3023},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/jae.3023},
+abstract = {Abstract This paper revisits Acemoglu-Johnson the predicted mortality instrument. Drawing on a unique historical data set of disease-specific mortality rates, we reconstruct several versions of the instrument that differ in terms of data usage and instrument relevance. Our findings confirm its predictive power on life expectancy. The replication analysis reveals a significant positive second-stage effect of life expectancy on population and total birth rates and a negative effect on GDP per capita for a subset of the revised instruments. Overall, data coverage and empirical tests suggest the superiority of our country-level instrument.},
+year = {2024}
+}

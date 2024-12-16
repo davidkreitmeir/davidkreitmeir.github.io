@@ -1,0 +1,348 @@
+body {
+  max-width: 900px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5em;
+}
+ a {
+    color: dodgerblue; /* Change the color of all links */
+  }
+
+#petite-caps {
+  font-variant-caps: petite-caps;
+}  
+
+
+/* header and footer areas */
+.menu { padding: 0; }
+.menu li { display: inline-block; }
+.article-meta, .menu a {
+  text-decoration: none;
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+}
+.menu, .article-meta, footer { text-align: center; }
+.title { font-size: 1.5em; }
+footer a { text-decoration: none; }
+hr {
+  border-style: dashed;
+  color: #ddd;
+}
+
+.menu li a.special-tab {
+  background: #eee;
+  color: dodgerblue; /* Change this to your desired color */
+/*   font-family: 'Arial', sans-serif; /* Replace with your desired font */ */
+  font-weight: bold; /* Optional: adjust for emphasis */
+}
+
+/* code */
+pre {
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 5px #eee;
+  padding: 1em;
+  overflow-x: auto;
+}
+code { background: #f9f9f9; }
+pre code { background: none; }
+
+/* misc elements */
+img, iframe, video { max-width: 100%; }
+main { hyphens: auto; }
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  padding: 3px 1em 3px;
+}
+
+/* --------- TABLE */
+table {
+    width: auto;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    background-color: white;
+    border-collapse: collapse;
+    margin-left: 0;
+}
+
+th, td {
+    padding: 10px; /* Adds space inside table cells */
+    text-align: left; /* Align text to the left */
+    border: none; /* Remove any cell borders */
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    table, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #f4f4f4;
+        padding: 10px 5px;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        padding: 10px 5px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+
+/* --------- TABLE */
+
+
+
+
+.subheading {
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 1rem;
+}
+
+/* Publish icon */
+.pubthumb {
+  float: left;
+  width: 75px;
+  height: 110px;
+  margin-right: 10px;
+}
+
+
+
+span.d-block {
+  font-family: Manrope;
+  font-weight: normal;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-direction: row; /* Stack items vertically */
+}
+
+/* Papers divider */
+.publication-divider {
+  border: 0;
+  height: 1px;
+  background-color: #ccc; /* Light gray color with 50% transparency */
+  margin-top: 20px; /* Adjust space above the line */
+  margin-bottom: 20px; /* Adjust space below the line */
+}
+
+
+
+.content-area {
+  text-align: justify;
+  margin-right: 20px; /* Default margin for mobile, adjust as needed */
+}
+
+@media (min-width: 768px) {
+  /* For tablets and larger screens */
+  .content-area {
+    margin-right: 300px; /* Larger margin for larger screens */
+  }
+}
+
+
+
+/* Adjust the profile image for mobile */
+/* .profile-img { */
+/*   display: block; /* Remove float and center the image */ */
+/*   margin: 0 auto; /* Center the image */ */
+/*   max-width: 33%; /* Set a max-width for all screen sizes */ */
+/*   width: auto; */
+/* } */
+
+.profile-img {
+  width: 100%;
+  max-width: 300px; /* Default size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .profile-img {
+    max-width: 200px; /* Slightly larger on smaller screens */
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+
+/* Center the title below the image */
+.title {
+  text-align: center; /* Center align the title */
+  margin-top: 20px; /* Give some space above the title */
+}
+
+/* Adjust the content area */
+.content-area {
+  text-align: left; /* Align the text to the left */
+  padding: 0 5px; /* Give some padding on the sides */
+}
+
+
+
+/* Use media queries to adjust layout for mobile screens */
+@media (min-width: 768px) {
+  .profile-img {
+    /* Align the image to the right on larger screens */
+    margin: 0; /* Resets any previously set auto margin */
+    float: right; /* Aligns the image to the right */
+    max-width: 33%; /* Adjusts the size for larger screens */
+  }
+}
+  
+  .menu li {
+    margin-bottom: 10px; /* Add space between menu items */
+  }
+
+  .menu, .article-meta, footer {
+    text-align: center; /* Center align the text for small screens */
+  }
+
+  /* Ensure the name is displayed below the image */
+  h1.title {
+    text-align: center;
+  }
+
+  /* Adjust the content area for mobile */
+  .content-area {
+    text-align: justify;
+    padding: 0 15px; /* Add some padding on the sides */
+  }
+
+  /* Clear any floats for the social icons and center them */
+  .div-block-9_2 {
+    float: none;
+    text-align: center;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; 
+  }
+
+
+}
+
+
+.social-icons-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-direction: row; /* Align items horizontally */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  margin: auto; /* Center the container on the page */
+  margin-bottom: -20px;
+  padding: 10px; /* Ensure there is enough space inside the container */
+}
+
+@media (min-width: 768px) {
+  .social-icons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.icon-wrapper {
+  margin: 0 10px; /* Adjust the space between icons */
+  display: flex; /* Aligns the svg/img within the icon wrapper */
+  justify-content: center; /* Center horizontally in the icon wrapper */
+  align-items: center; /* Center vertically in the icon wrapper */
+}
+
+.social-icon-link {
+  display: inline-flex; /* Allows the a tag to be a flex container */
+  margin: 0 10px; /* Adjust the space between icons */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.social-icon-link img, .social-icon-link svg {
+  width: 28px; /* Adjust width as needed */
+  height: auto; /* Maintain the aspect ratio */
+  vertical-align: middle; /* Aligns the icons if they are different heights */
+}
+
+/* This will target the reference list container */
+.references-section {
+  text-align: center;
+  margin-top: 2em;
+}
+
+/* This will target each reference within the list */
+.reference-list {
+  display: inline;
+  justify-content: center; /* Centers the references horizontally */
+  flex-wrap: wrap; /* Allows references to wrap onto the next line if needed */
+  gap: 2em; /* Space between references */
+}
+
+/* This targets each reference item */
+.reference {
+  text-align: center; /* Centers the text inside each reference */
+  padding: 0 10px; /* Padding on the sides of each reference */
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  .reference-list {
+    flex-direction: column; /* Stack the references vertically on small screens */
+    align-items: center; /* Center items when stacked */
+  }
+}
+
+
+.social-icons a {
+  float: right;
+  display:inline-block;
+  height:2.4rem;
+  width:2.4rem;
+  background-color:transparent;
+  color:black !important;
+  border-radius:100%;
+  text-align:center;
+  font-size:1.7rem;
+  line-height:2.5rem;
+  margin-right:1rem
+}
+.social-icons a:last-child {
+  margin-right:0
+}
+.social-icons a:hover {
+  background-color:white;
+  color:black;
+  transform:scale(1.2)
+}
+
+.third {
+  width: 45%;
+  float: left;
+  /* Add flexbox properties */
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .third {
+    width: 100%;
+    margin: 10px 0;
+    float: none;
+  }
+}
