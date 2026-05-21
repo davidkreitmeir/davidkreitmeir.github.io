@@ -7,6 +7,10 @@
    Light Grey   #A3AEBA  (7543)
    ============================================================ */
 
+html {
+  background-color: #ffffff;
+}
+
 body {
   max-width: 900px;
   margin: auto;
