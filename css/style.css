@@ -15,12 +15,17 @@ body {
 }
 
 a {
-  color: #005B84;
+  color: #19AECA;
   text-decoration: none;
 }
 a:hover {
-  color: #19AECA;
+  color: #005B84;
   text-decoration: underline;
+}
+
+/* Headings in soton marine blue */
+h1, h2, h3, h4, h5, h6 {
+  color: #005B84;
 }
 
 #petite-caps {
@@ -42,10 +47,6 @@ a:hover {
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.5em; }
 footer a { text-decoration: none; }
-hr {
-  border-style: dashed;
-  color: #A3AEBA;
-}
 
 .menu li a.special-tab {
   background: #e8eff3;
@@ -139,13 +140,21 @@ span.d-block {
   flex-direction: row;
 }
 
-/* Papers divider */
+/* Papers divider — clear float so it spans full width past pubthumb */
 .publication-divider {
   border: 0;
   height: 1px;
   background-color: #c8d4db;
   margin-top: 20px;
   margin-bottom: 20px;
+  clear: both;
+}
+
+/* Footer hr — thick marine blue to match site-header borders */
+footer hr {
+  border: 0;
+  border-top: 3px solid #005B84;
+  clear: both;
 }
 
 .content-area {
@@ -320,7 +329,7 @@ h1.title {
 
 /* Publication link hierarchy */
 .pub-title a, .pub-title {
-  color: #003F5C;
+  color: #19AECA;
   font-weight: 700;
   font-size: 1.05em;
   text-decoration: none;
