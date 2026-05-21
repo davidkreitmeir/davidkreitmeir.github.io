@@ -150,10 +150,10 @@ span.d-block {
   clear: both;
 }
 
-/* Footer hr — solid thin grey */
+/* Footer hr — 2px solid marine blue, frames the page */
 footer hr {
   border: 0;
-  border-top: 1px solid #A3AEBA;
+  border-top: 2px solid #005B84;
   clear: both;
 }
 
