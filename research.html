@@ -33,32 +33,62 @@ function toggleAbstract(abstractId) {
 </head>
 <body>
 
-  <div style="text-align: center; padding: 18px 0 10px 0;">
-    <img src="/img/USH0149_LOGO-2021_RGB_Marine-Blue_AW.png"
-         alt="University of Southampton"
-         style="max-width: 260px; width: 100%; height: auto;">
-  </div>
-
-  <!-- Simplified for brevity -->
-      <nav>
 <style>
-  .menu a {
-    color: black; /* Set the color for all links */
-    text-decoration: none; /* Remove underline */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0 12px 0;
+    border-top: 4px solid #005B84;
+    border-bottom: 1px solid #d0dce4;
+    margin-bottom: 18px;
   }
-
-  .menu a:hover {
-    color: darkgray; /* Color change on hover */
+  .site-header img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .site-header ul.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .site-header ul.menu li { display: inline-block; margin-bottom: 0; }
+  .site-header ul.menu a {
+    display: inline-block;
+    color: #005B84;
+    background: #ffffff;
+    border: 1.5px solid #005B84;
+    border-radius: 5px;
+    padding: 5px 13px;
+    font-weight: 600;
+    font-size: 0.95em;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .site-header ul.menu a:hover {
+    background: #005B84;
+    color: #ffffff;
   }
 </style>
-  <ul class="menu">
-  <li><a href="/">Home</a></li>
-  <li><a href="/files/CV_David_H_Kreitmeir.pdf" target="_blank">CV</a></li>
-  <li><a href="/research.html">Research</a></li>
-  <li><a href="https://github.com/davidkreitmeir">GitHub</a></li>
-  </ul>
-    <hr/>
-    </nav>
+
+<nav>
+  <div class="site-header">
+    <img src="/img/USH0149_LOGO-2021_RGB_Marine-Blue_AW.png" alt="University of Southampton">
+    <ul class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/files/CV_David_H_Kreitmeir.pdf" target="_blank">CV</a></li>
+      <li><a href="/research.html">Research</a></li>
+      <li><a href="https://github.com/davidkreitmeir">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- Insert your research content here -->
 <h2 id="publications">Publications<span></span></h2>
