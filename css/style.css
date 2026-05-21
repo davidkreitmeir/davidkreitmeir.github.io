@@ -15,11 +15,11 @@ body {
 }
 
 a {
-  color: #19AECA;
-  text-decoration: none;
+  color: #005B84;
+  text-decoration: underline;
 }
 a:hover {
-  color: #005B84;
+  color: #19AECA;
   text-decoration: underline;
 }
 
@@ -150,10 +150,10 @@ span.d-block {
   clear: both;
 }
 
-/* Footer hr — thick marine blue to match site-header borders */
+/* Footer hr — solid thin grey */
 footer hr {
   border: 0;
-  border-top: 3px solid #005B84;
+  border-top: 1px solid #A3AEBA;
   clear: both;
 }
 
@@ -329,13 +329,13 @@ h1.title {
 
 /* Publication link hierarchy */
 .pub-title a, .pub-title {
-  color: #19AECA;
+  color: #005B84;
   font-weight: 700;
   font-size: 1.05em;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .pub-title a:hover {
-  color: #005B84;
+  color: #19AECA;
   text-decoration: underline;
 }
 
