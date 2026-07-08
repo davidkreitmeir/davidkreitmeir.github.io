@@ -1,7 +1,8 @@
 @article{KLR2026,
-     author = {Kreitmeir, David and Lane, Nathan and Raschky, Paul},
-     year = {2026},
-     title = {{The Value of Names - Civil Society, Information, and Governing Multinationals}},
-     journal = {Journal of the European Economic Association},
-     url = {https://eeassoc.org/journal/value-names-civil-society-information-and-governing-multinationals}
+    author  = {Kreitmeir, David H. and Lane, Nathan and Raschky, Paul A.},
+    year    = {2026},
+    title   = {{The Value of Names - Civil Society, Information, and Governing Multinationals}},
+    journal = {Journal of the European Economic Association},
+    doi     = {10.1093/jeea/jvag040},
+    url     = {https://eeassoc.org/journal/value-names-civil-society-information-and-governing-multinationals}
 }
