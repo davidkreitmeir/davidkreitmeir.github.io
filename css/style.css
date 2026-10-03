@@ -43,10 +43,11 @@
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans:  "Source Sans 3", "Segoe UI", Arial, sans-serif;
 
-  --page:    68rem;          /* outer width of header, hero, sections */
-  --gutter:  clamp(1rem, 4vw, 2.5rem);
-  --side:    15rem;          /* left column: portrait, section headings */
-  --gap:     clamp(2rem, 5vw, 4rem);
+  --page:    74rem;          /* outer width of header, hero, sections */
+  --measure: 46rem;          /* max width of running text (~85 characters) */
+  --gutter:  clamp(1rem, 4vw, 3rem);
+  --side:    16rem;          /* left column: portrait, section headings */
+  --gap:     clamp(2rem, 4vw, 3.5rem);
   --header:  5.75rem;
 
   color-scheme: dark;       /* dark scrollbars and form controls on the blue page */
@@ -54,7 +55,11 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Everything is sized in rem, so letting the root size grow on wide
+   screens scales the whole page up instead of leaving a wide empty frame.
+   16px up to ~1070px wide, about 18px at 1440px, 21px at 1920px. */
 html {
+  font-size: clamp(100%, 0.6rem + 0.6vw, 137.5%);
   background: var(--marine);
   scroll-padding-top: calc(var(--header) + 1.5rem);
   -webkit-text-size-adjust: 100%;
@@ -68,7 +73,7 @@ body {
   background: var(--marine);
   color: var(--white);
   font-family: var(--serif);
-  font-size: clamp(1.03rem, 0.98rem + 0.25vw, 1.125rem);
+  font-size: 1.06rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -188,7 +193,7 @@ button:focus-visible {
 #research .block:first-child {
   border-top: 1px solid var(--rule);
 }
-.block-body { max-width: 44rem; }
+.block-body { max-width: var(--measure); }
 
 h1, h2, h3 { font-family: var(--serif); font-weight: 600; margin: 0; }
 
@@ -243,7 +248,7 @@ h2 {
    ========================================================================== */
 .paper {
   display: grid;
-  grid-template-columns: 75px minmax(0, 1fr);
+  grid-template-columns: 4.7rem minmax(0, 1fr);
   column-gap: 1.1rem;
   align-items: start;
 }
@@ -254,9 +259,9 @@ h2 {
 }
 
 .paper-thumb {
-  width: 75px;
+  width: 4.7rem;
   height: auto;
-  max-height: 113px;
+  max-height: 7rem;
   object-fit: contain;
   object-position: top left;
   border-radius: 2px;
@@ -366,6 +371,6 @@ h2 {
   .site-header nav .nav-about { display: none; }   /* the logo already goes to the top */
 
   .portrait { max-width: 11rem; }
-  .paper { grid-template-columns: 56px minmax(0, 1fr); column-gap: 0.9rem; }
-  .paper-thumb { width: 56px; max-height: 85px; }
+  .paper { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 0.9rem; }
+  .paper-thumb { width: 3.5rem; max-height: 5.3rem; }
 }
