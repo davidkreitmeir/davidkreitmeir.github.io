@@ -1,132 +1,201 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta name="generator" content="Hugo 0.92.0" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>David H Kreitmeir</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David H. Kreitmeir</title>
+  <meta name="description" content="David H. Kreitmeir, Lecturer (Assistant Professor) in Economics at the University of Southampton. Research in political economy, environmental and resource economics, and conflict.">
+  <meta name="theme-color" content="#00557F">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
+  <link rel="preload" href="fonts/SourceSerif4-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-
-    <!-- Dark Mode -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark" />
-
-    <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/dark_mode.js"></script>
-
-  </head>
-
-  <body>
-
-<style>
-  .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 0 12px 0;
-    border-top: 4px solid #005B84;
-    border-bottom: 2px solid #005B84;
-    margin-bottom: 18px;
-  }
-  .site-header img {
-    max-width: 200px;
-    width: 100%;
-    height: auto;
-    flex-shrink: 0;
-  }
-  .site-header ul.menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 6px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .site-header ul.menu li { display: inline-block; margin-bottom: 0; }
-  .site-header ul.menu a {
-    display: inline-block;
-    color: #005B84;
-    background: #ffffff;
-    border: 1.5px solid #005B84;
-    border-radius: 5px;
-    padding: 5px 13px;
-    font-weight: 600;
-    font-size: 0.95em;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s;
-  }
-  .site-header ul.menu a:hover {
-    background: #005B84;
-    color: #ffffff;
-  }
-</style>
-
-<nav>
-  <div class="site-header">
-    <img src="/img/USH0149_LOGO-2021_RGB_Marine-Blue_AW.png" alt="University of Southampton">
-    <ul class="menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/files/CV_David_H_Kreitmeir.pdf" target="_blank">CV</a></li>
-      <li><a href="/research.html">Research</a></li>
-      <li><a href="https://github.com/davidkreitmeir">GitHub</a></li>
-    </ul>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="David H. Kreitmeir, back to top">
+      <img src="img/soton-logo-white.png" alt="University of Southampton" width="542" height="115">
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#top" class="nav-about">About</a>
+      <a href="#research">Research</a>
+      <a href="files/CV_David_H_Kreitmeir.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://github.com/davidkreitmeir" class="nav-icon" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg></a>
+    </nav>
   </div>
-</nav>
+</header>
 
+<main id="main">
 
-<img src="https://davidkreitmeir.github.io/img/Profile.png" class="profile-img"/>
+  <!-- ============================== ABOUT ============================== -->
+  <section class="block hero" id="top" aria-labelledby="name">
+    <figure class="portrait">
+      <img src="img/profile.jpg" alt="Portrait of David H. Kreitmeir" width="720" height="900" fetchpriority="high">
+    </figure>
 
+    <div class="block-body intro">
+      <h1 id="name">David H. Kreitmeir</h1>
+      <p class="hero-email"><a href="mailto:D.H.Kreitmeir@soton.ac.uk"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"/></svg>D.H.Kreitmeir@soton.ac.uk</a></p>
 
-<div class="content-area">
-<h1>David H. Kreitmeir</h1>
+      <p>I'm a <b>Lecturer (Assistant Professor) at The University of Southampton</b>, United Kingdom, and an <b>Adjunct Research Fellow at SoDa Labs, Monash University, Australia</b>. Previously, I was a Postdoctoral Research Fellow at SoDa Labs and Monash University's Department of Economics.</p>
 
-<p>I'm a <b>Lecturer (Assistant Professor) at The University of Southampton</b>, United Kingdom, and an <b>Adjunct Research Fellow at SoDa Labs, Monash University, Australia</b>. Previously, I was a Postdoctoral Research Fellow at SoDa Labs and Monash University's Department of Economics.</p>
+      <p>I'm an <b>applied economist</b>. My primary field of research is at the intersection of <b>political economy</b>, <b>environmental and resource economics</b>, and <b>conflict</b>. I also explore topics in <b>long-run development</b> and <b>digital economics</b>.</p>
 
-<p>I’m an <b>applied economist</b>. My primary field of research is at the intersection of <b>political economy</b>, <b>environmental and resource economics</b>, and <b>conflict</b>. I also explore topics in <b>long-run development</b> and <b>digital economics</b>.</p>
+      <p>Some of my recent projects examine <a href="files/Job_Market_Paper_David_H_Kreitmeir.pdf" target="_blank" rel="noopener">why even democratic states repress socioenvironmental protests</a>, and <a href="files/The_Value_of_Names.pdf" target="_blank" rel="noopener">how human rights organizations can hold powerful multinationals accountable in the absence of strong formal institutions</a>. Much of my work involves building new datasets from text and geospatial sources, using methods from natural language processing, machine learning, and geocomputation.</p>
 
-<p>Some of my recent projects examine <a href="https://davidkreitmeir.github.io/files/Job_Market_Paper_David_H_Kreitmeir.pdf">why even democratic states repress socioenvironmental protests</a>, and <a href="https://davidkreitmeir.github.io/files/The_Value_of_Names.pdf">how human rights organizations can hold powerful multinationals accountable in the absence of strong formal institutions</a>. Much of my work involves building new datasets from text and geospatial sources, using methods from natural language processing, machine learning, and geocomputation.<p>
+      <p>You can find my research <a href="#research">below</a>, and my CV <a href="files/CV_David_H_Kreitmeir.pdf" target="_blank" rel="noopener">here</a>.</p>
+    </div>
+  </section>
 
+  <!-- ============================== RESEARCH ============================== -->
+  <div id="research">
 
-<p><em>Contact: </em><a href="mailto:D.H.Kreitmeir@soton.ac.uk">D.H.Kreitmeir@soton.ac.uk </b></a> </p>
+    <!-- ---------- Publications ---------- -->
+    <section class="block" id="publications" aria-labelledby="h-publications">
+      <h2 id="h-publications">Publications</h2>
 
-<!-- <p id="petite-caps"; font-size: 120%;> <b>References:</b> <b><a class="two" href="https://www.sobecker.de/" target="_blank">Sascha O. Becker</a></b> · <b><a class="two" href="https://praschky.github.io/" target="_blank">Paul A. Raschky</a></b> · <b><a class="two" href="https://www.econ.lmu.de/de/personen/kontaktseite/uwe-sunde-9ccd3520.html" target="_blank">Uwe Sunde</a></b> </p> -->
+      <div class="block-body">
 
-</br>
+        <article class="paper">
+          <img class="paper-thumb" src="img/jeea.jpeg" alt="" width="75" height="108" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title"><a href="https://academic.oup.com/jeea/advance-article/doi/10.1093/jeea/jvag040/8728732" target="_blank" rel="noopener">The Value of Names - Civil Society, Information, and Governing Multinationals</a></h3>
+            <p class="paper-venue"><em>Forthcoming @</em> <strong>Journal of the European Economic Association</strong></p>
+            <p class="paper-authors">Joint with <a href="https://www.nathanlane.info/" target="_blank" rel="noopener">Nathan Lane</a>, <a href="https://praschky.github.io/" target="_blank" rel="noopener">Paul A. Raschky</a></p>
+            <p class="paper-small"><em>Selected Coverage:</em> <a href="https://www.ohchr.org/sites/default/files/Documents/Issues/Business/UNGPs10/Stocktaking-investor-implementation.pdf" target="_blank" rel="noopener">OHCHR</a>, <a href="https://qz.com/1954869/markets-hold-companies-accountable-for-human-rights-violations/" target="_blank" rel="noopener">Quartz</a>, <a href="https://news.mongabay.com/2021/01/environmental-assassinations-bad-for-business-new-research-shows/" target="_blank" rel="noopener">Mongabay</a>, <a href="https://www.ox.ac.uk/news/arts-blog/murder-bad-business-oxford-economics-study" target="_blank" rel="noopener">Oxford Arts Blog</a>, <a href="https://lens.monash.edu/@business-economy/2021/02/08/1382750/why-killing-environmental-activists-is-bad-for-business" target="_blank" rel="noopener">Monash Lens</a></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-names">Abstract</button> · <a href="files/The_Value_of_Names_Online_Appendix.pdf" target="_blank" rel="noopener">Appendix</a> · <a href="https://github.com/davidkreitmeir/synthReturn" target="_blank" rel="noopener">synthReturn</a> · <a href="files/JEEA.txt" target="_blank" rel="noopener">BibTeX</a> · <a href="https://zenodo.org/records/20255731" target="_blank" rel="noopener">Replication Package</a></p>
+            <div class="abstract" id="abstract-names" hidden>Can markets discipline socially costly misbehavior abroad? We explore the market penalty associated with major human rights violations&mdash;specifically, the assassination of mining activists, a context where formal legal recourse is rare and events often do not involve counterparties. We show that firms featured in media coverage of these incidents experience significant, negative abnormal stock returns. Whereas reactions to related forms of corporate misconduct may be transitory or muted, we find that the market responses are both substantial and persistent, with a median 10-day loss exceeding USD 100 million. Since formal legal sanction is exceedingly rare, we consider the role of market penalties. We highlight three mechanisms that are consistent with reputational costs: (1) Media attention magnifies the market response. (2) Information-sensitive institutional investors systematically divest following assassination events. (3) Events reduce future trade, leading to a 19% decline in new contracts with counterparties. Despite these costs, events persist. We find that assassinations increase with dependence on mining royalties, suggesting that local rents sustain conflict despite market pressure. Thus, reputational sanctions may be significant&mdash;even in weakly institutionalized settings&mdash;yet may not fully deter misbehavior when local and global incentives diverge.</div>
+          </div>
+        </article>
 
+        <article class="paper">
+          <img class="paper-thumb" src="img/jae.jpeg" alt="" width="75" height="99" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title"><a href="https://onlinelibrary.wiley.com/doi/10.1002/jae.3023" target="_blank" rel="noopener">Disease and Development - The Predicted Mortality Instrument Revisited</a></h3>
+            <p class="paper-venue"><strong>Journal of Applied Econometrics</strong>, Volume 39, Issue 2, March 2024, Pages 327&ndash;337</p>
+            <p class="paper-authors">Joint with <a href="https://www.econ.lmu.de/de/personen/kontaktseite/thomas-ueberfuhr-71d5f6df.html" target="_blank" rel="noopener">Thomas Überfuhr</a></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-disease">Abstract</button> · <a href="files/JAE202403.txt" target="_blank" rel="noopener">BibTeX</a> · <a href="files/Kreitmeir_Ueberfuhr_20230604.pdf" target="_blank" rel="noopener">Working Paper</a> · <a href="https://journaldata.zbw.eu/dataset/disease-and-development-the-predicted-mortality-instrument-revisited-replication-data" target="_blank" rel="noopener">Replication Package</a></p>
+            <div class="abstract" id="abstract-disease" hidden>This paper revisits the predicted mortality instrument introduced in the seminal study of Acemoglu and Johnson (2007). Drawing on a unique historical data set of disease-specific mortality rates, we reconstruct several versions of the instrument that differ in terms of data usage and instrument relevance. Our findings confirm its predictive power on life expectancy. The replication analysis reveals a significant positive second-stage effect of life expectancy on population and total birth rates, and a negative effect on GDP per capita for a subset of the revised instruments. Overall, data coverage and empirical tests suggest the superiority of our country-level instrument.</div>
+          </div>
+        </article>
 
+      </div>
+    </section>
 
+    <!-- ---------- Working Papers ---------- -->
+    <section class="block" id="working-papers" aria-labelledby="h-working-papers">
+      <h2 id="h-working-papers">Working Papers</h2>
 
+      <div class="block-body">
 
+        <article class="paper">
+          <img class="paper-thumb" src="img/socarxiv.png" alt="" width="75" height="75" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title"><a href="files/Job_Market_Paper_David_H_Kreitmeir.pdf" target="_blank" rel="noopener">The Political Economy of Socioenvironmental Conflict: Evidence from Peru</a></h3>
+            <p class="paper-venue paper-small"><strong>Job Market Paper</strong></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-peru">Abstract</button> · <a href="files/JMP.txt" target="_blank" rel="noopener">BibTeX</a> · <a href="https://doi.org/10.31235/osf.io/e7avt" target="_blank" rel="noopener">SocArXiv</a></p>
+            <div class="abstract" id="abstract-peru" hidden>Over the past two decades, violence against land and environmental activists has been on the rise, besetting even stable democracies. Using a unique, fine-grained data set on social conflict events in Peru and exogenous variation in world mineral prices, I document a strong link between local mineral rents and violent state repression of socioenvironmental protests in a democratic institutional setting. I show that the increase in the use of excessive force cannot be explained by changes in protester behavior. Empirical findings highlight the role of local authorities: the election of a pro-mining mayor is associated with a higher prevalence of state repression and corruption in the constituency. The legal and democratic accountability of local authorities is, however, found to be limited. The reported increase in corruption does not translate into more investigations against pro-mining mayors for corruption offenses nor are reelection results of incumbents found to be negatively affected by state violence against protesters. Finally, I show that violent state repression is successful in forestalling conflict resolution agreements that acknowledge protesters’ demands.</div>
+          </div>
+        </article>
 
-</div>
-</br>
+        <article class="paper">
+          <img class="paper-thumb" src="img/managementscience-rr.png" alt="" width="75" height="113" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title"><a href="files/ChatGPT_Ban_Italy.pdf" target="_blank" rel="noopener">The Heterogeneous Productivity Effects of Generative AI</a></h3>
+            <p class="paper-authors">Joint with <a href="https://praschky.github.io/" target="_blank" rel="noopener">Paul A. Raschky</a></p>
+            <p class="paper-venue paper-small"><strong>Reject &amp; Resubmit @ Management Science</strong></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-genai">Abstract</button> · <a href="files/ChatGPT.txt" target="_blank" rel="noopener">BibTeX</a> · <a href="https://arxiv.org/abs/2403.01964" target="_blank" rel="noopener">arXiv</a></p>
+            <div class="abstract" id="abstract-genai" hidden>We analyse the individual productivity effects of Italy’s ban on ChatGPT, a generative pretrained transformer chatbot. We compile data on the daily coding output quantity and quality of over 36,000 GitHub users in Italy and other European countries and combine these data with the sudden announcement of the ban in a difference-in-differences framework. Among the affected users in Italy, we find a short-term increase in output quantity and quality for less experienced users and a decrease in productivity on more routine tasks for experienced users.</div>
+          </div>
+        </article>
 
-<!-- <style> .foot { width: 100%; float: left; } </style>	   -->
+      </div>
+    </section>
 
+    <!-- ---------- Work in Progress ---------- -->
+    <section class="block" id="work-in-progress" aria-labelledby="h-work-in-progress">
+      <h2 id="h-work-in-progress">Work in Progress</h2>
 
+      <div class="block-body">
 
+        <article class="paper">
+          <img class="paper-thumb" src="img/workinprogress2.jpg" alt="" width="75" height="75" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title">Population and Conflict Revisited</h3>
+            <p class="paper-authors">Joint with <a href="https://www.econ.lmu.de/de/personen/kontaktseite/uwe-sunde-9ccd3520.html" target="_blank" rel="noopener">Uwe Sunde</a>, <a href="https://www.econ.lmu.de/de/personen/kontaktseite/thomas-ueberfuhr-71d5f6df.html" target="_blank" rel="noopener">Thomas Überfuhr</a></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-population">Abstract</button></p>
+            <div class="abstract" id="abstract-population" hidden>This study both theoretically and empirically reinvestigates whether population growth causes conflict. Combining disease-specific historic mortality rates of Kreitmeir and Überfuhr (2023) with novel data on age-group–specific mortality rates and the timing of the demographic transition, we provide new evidence for the systematic heterogeneity in the effect of population on conflict. While Malthusian population dynamics can cause conflict, we find that this effect is restricted to countries that have not yet completed the demographic transition. On the other hand, health-induced population changes are shown to have a peace dividend in post-transitional countries. Separating the population size and youth bulge effect in an 2SLS estimation framework, moreover, confirms the non-monotonic population effect but reveals a global positive effect of youth bulges on conflict.</div>
+          </div>
+        </article>
 
+        <!--
+        <article class="paper">
+          <img class="paper-thumb" src="img/workinprogress2.jpg" alt="" width="75" height="75" loading="lazy">
+          <div class="paper-body">
+            <h3 class="paper-title">Hegemonic Resource Competition</h3>
+            <p class="paper-authors">Joint with <a href="https://www.jorismueller.com/" target="_blank" rel="noopener">Joris Mueller</a>, <a href="https://paulschaudt.com/" target="_blank" rel="noopener">Paul Schaudt</a></p>
+            <p class="paper-small paper-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-hegemonic">Abstract</button></p>
+            <div class="abstract" id="abstract-hegemonic" hidden>This project introduces a novel geocoded dataset on Chinese overseas mining and exploration projects. We construct a firm-commodity-mine level dataset by 1) identifying the set of overseas mining projects from official records from the Chinese Ministry of Commerce website, 2) coding their geolocation, project owners, and commodities, and 3) linking the project owners to administrative firm-level datasets from China, including firm-commodity-year level customs records. The result is the most comprehensive and granular dataset on Chinese overseas mining projects to date, allowing us to provide new empirical insights into the process behind China's mining investments and their economic and social impact in the host countries.</div>
+          </div>
+        </article>
+        -->
 
+      </div>
+    </section>
 
+  </div>
 
-</br>
-</br>
-</br>
-<div class="foot">
-  <footer>
-    <hr/>
-    <span style="color: #005B84; font-weight: 500;">© David H Kreitmeir, 2024</span>
-  </footer>
-</div>
+</main>
 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© David H. Kreitmeir, 2026</span>
+  </div>
+</footer>
 
-  </body>
+<script>
+  // Abstract toggles: show/hide the abstract under each paper.
+  document.querySelectorAll('.abstract-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      box.hidden = open;
+    });
+  });
+
+  // Header: draw its bottom rule once the page has scrolled.
+  var header = document.querySelector('.site-header');
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Nav: mark the link of the section currently on screen.
+  var navLinks = {
+    top: document.querySelector('nav a[href="#top"]'),
+    research: document.querySelector('nav a[href="#research"]')
+  };
+  var ticking = false;
+  function markCurrent() {
+    ticking = false;
+    var line = window.scrollY + window.innerHeight * 0.35;
+    var current = 'top';
+    var research = document.getElementById('research');
+    if (research.getBoundingClientRect().top + window.scrollY <= line) current = 'research';
+    Object.keys(navLinks).forEach(function (k) {
+      if (k === current) navLinks[k].setAttribute('aria-current', 'location');
+      else navLinks[k].removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(markCurrent); }
+  }, { passive: true });
+  window.addEventListener('resize', markCurrent);
+  markCurrent();
+</script>
+</body>
 </html>
